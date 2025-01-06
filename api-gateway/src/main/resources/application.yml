@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: commandes
+          uri: lb://microservice-commandes
+          predicates:
+            - Path=/commandes/**
+        - id: produits
+          uri: lb://microservice-produit
+          predicates:
+            - Path=/produits/**
